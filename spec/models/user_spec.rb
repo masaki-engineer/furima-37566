@@ -67,51 +67,51 @@ RSpec.describe User, type: :model do
       it 'emailは@を含まないと登録できない' do
         @user.email = 'hogehoge'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが英字のみでは登録できない' do
         @user.password = 'hogehoge'
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
       it 'passwordが数字のみでは登録できない' do
         @user.password = '123456'
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'hoge1'
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordが129文字以上では登録できない' do
         @user.password = Faker::Internet.password(min_length: 129)
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too long (maximum is 128 characters)")
+        expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
       it 'last_nameが全角以外を含む場合は登録できない' do
         @user.last_name = 'hoge山'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name は全角で入力して下さい")
+        expect(@user.errors.full_messages).to include('Last name は全角で入力して下さい')
       end
       it 'first_nameが全角以外を含む場合は登録できない' do
         @user.first_name = 'hoge太郎'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name は全角で入力して下さい")
+        expect(@user.errors.full_messages).to include('First name は全角で入力して下さい')
       end
       it 'last_name_kanaがカタカナ以外を含む場合は登録できない' do
         @user.last_name_kana = 'てすとテスト'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana はカタカナで入力して下さい")
+        expect(@user.errors.full_messages).to include('Last name kana はカタカナで入力して下さい')
       end
       it 'first_name_kanaがカタカナ以外を含む場合は登録できない' do
         @user.first_name_kana = 'てすとテスト'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana はカタカナで入力して下さい")
+        expect(@user.errors.full_messages).to include('First name kana はカタカナで入力して下さい')
       end
     end
   end
