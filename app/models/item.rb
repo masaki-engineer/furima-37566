@@ -10,10 +10,10 @@ class Item < ApplicationRecord
 
   validates :name,                   presence: true
   validates :info,                   presence: true
-  validates :category_id,            numericality: { other_than: 1 , message: "can't be blank"}
-  validates :sales_status_id,        numericality: { other_than: 1 , message: "can't be blank"}
-  validates :shipping_fee_status_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :prefecture_id,          numericality: { other_than: 1 , message: "can't be blank"}
-  validates :scheduled_delivery_id,  numericality: { other_than: 1 , message: "can't be blank"}
-  validates :price,                  presence: true, numericality: { in: 300..9999999 }
+  validates :category_id,            numericality: { other_than: 1, message: "can't be blank"}
+  validates :sales_status_id,        numericality: { other_than: 1, message: "can't be blank"}
+  validates :shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank"}
+  validates :prefecture_id,          numericality: { other_than: 1, message: "can't be blank"}
+  validates :scheduled_delivery_id,  numericality: { other_than: 1, message: "can't be blank"}
+  validates :price,                  presence: true, numericality: { in: 300..9999999, message: "は¥300~¥9,999,999の間にして下さい" }
 end
