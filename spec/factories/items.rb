@@ -7,7 +7,7 @@ FactoryBot.define do
     shipping_fee_status_id { Random.rand(2..3) }
     prefecture_id          { Random.rand(2..48) }
     scheduled_delivery_id  { Random.rand(2..4) }
-    price                  { Random.rand(300..9999999) }
+    price                  { Random.rand(300..9_999_999) }
     association :user
 
     after(:build) do |item|
