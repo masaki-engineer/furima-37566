@@ -9,5 +9,9 @@ FactoryBot.define do
     scheduled_delivery_id  { Random.rand(2..4) }
     price                  { Random.rand(300..9999999) }
     association :user
+
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    end
   end
 end
