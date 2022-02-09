@@ -17,4 +17,5 @@ class Item < ApplicationRecord
   validates :prefecture_id,          numericality: { other_than: 1, message: "can't be blank"}
   validates :scheduled_delivery_id,  numericality: { other_than: 1, message: "can't be blank"}
   validates :price,                  presence: true, numericality: { in: 300..9999999, message: "は¥300~¥9,999,999の間にして下さい" }
+  validates :image,                  presence: true
 end
