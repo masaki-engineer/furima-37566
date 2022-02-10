@@ -31,11 +31,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    update_item = item_params
-    if update_item.image == nil
-      update_item.image = @item.image
-    end
-    @item.update(update_item)
+    @item.update(item_params)
     if @item.save
       redirect_to item_path(@item.id)
     else
