@@ -72,7 +72,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price は¥300~¥9,999,999の間にして下さい')
       end
-      it 'ユーザーが紐付いていなければ投稿できない' do
+      it 'ユーザーが紐付いていなければ登録できない' do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
