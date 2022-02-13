@@ -32,17 +32,17 @@ RSpec.describe OrderAddress, type: :model do
       it '郵便番号が全角では投稿できない' do
         @order_address.postal_code = '１２３ー４５６７'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code は半角数字3桁-(ハイフン)半角数字4桁で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Postal code は半角数字3桁-(ハイフン)半角数字4桁で入力して下さい')
       end
       it '郵便番号がハイフンを含まないと投稿できない' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code は半角数字3桁-(ハイフン)半角数字4桁で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Postal code は半角数字3桁-(ハイフン)半角数字4桁で入力して下さい')
       end
       it '郵便番号がの桁数が間違っていると投稿できない' do
         @order_address.postal_code = '1234-567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code は半角数字3桁-(ハイフン)半角数字4桁で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Postal code は半角数字3桁-(ハイフン)半角数字4桁で入力して下さい')
       end
       it '都道府県が選択されていないと投稿できない' do
         @order_address.prefecture_id = 1
@@ -67,22 +67,22 @@ RSpec.describe OrderAddress, type: :model do
       it '電話番号が全角では投稿できない' do
         @order_address.phone_number = '０９０１２３４５６７８'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい')
       end
       it '電話番号がハイフンを含むと投稿できない' do
         @order_address.phone_number = '090-1234-5678'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい')
       end
       it '電話番号が10桁より少ないと投稿できない' do
         @order_address.phone_number = '123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい')
       end
       it '電話番号が11桁より多いと投稿できない' do
         @order_address.phone_number = '123456789012'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい")
+        expect(@order_address.errors.full_messages).to include('Phone number は半角数字10桁もしくは半角数字11桁(ハイフンなし)で入力して下さい')
       end
       it 'ユーザーが紐付いていなければ登録できない' do
         @order_address.user_id = nil
